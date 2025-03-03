@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=DM+Serif+Text:ital@0;1&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mystery+Quest&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+* {
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  }
+
+
+body {
+  height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+.todolist-container {
+  width: 40%;
+  height: 30%;
+  display: grid;
+  padding-top: 40px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
+  justify-items: center;
+  align-items: end;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  border-radius: 40px;
+  font-family: "Edu AU VIC WA NT Pre", serif;
+  /* font-optical-sizing: auto; */
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.4rem;
+  /* text-transform: uppercase; */
+  box-shadow: -1px 1px 18px 3px rgb(54, 45, 103);
+  
+}
+
+.todolist-container h1 {
+  width: 100%;
+  text-align: center;
+}
+
+
+/* From Uiverse.io by vinodjangid07 */ 
+.InputContainer {
+  width: 260px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom,rgb(227, 213, 255),rgb(255, 231, 231));
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.input {
+  width: 250px;
+  height: 40px;
+  border: none;
+  outline: none;
+  caret-color: rgb(255, 81, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  padding-left: 15px;
+  letter-spacing: 0.8px;
+  color: rgb(19, 19, 19);
+  font-size: 13.4px;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  
+}
+  
