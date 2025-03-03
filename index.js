@@ -14,13 +14,24 @@
 
 const form = document.querySelector("form");
 let todo = "";
+const li = document.querySelector("li");
 
 // récupère le texte qui est tapé en temps réel dans l'input:
 input.addEventListener("input", (e) => {
   todo = e.target.value;
+  console.log(todo);
 });
 
-// Annuler le changement de page quand on presse sur "Valider" dans un formulaire:
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   // console.log("yes !");
+// Ajouter un todo à la liste au submit
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  document.querySelector(".items > ul").innerHTML += `
+  <li>${todo}</li>`;
+});
+
+// Supprimer un todo quand on click dessus: (.remove()) => bubbles)
+li.addEventListener("click", () => {
+  console.log("test");
+  li.remove();
+});
