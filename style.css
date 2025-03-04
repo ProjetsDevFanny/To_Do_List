@@ -21,15 +21,15 @@ body {
 }
 
 .todolist-container {
-  position: absolute;
+  min-height: 30vh; /* Hauteur initiale */
+  transition: min-height 0.3s ease-in-out; /* Animation fluide */
   width: 40%;
-  height: 30%;
   display: grid;
   /* padding-top: 40px; */
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr ;
   justify-items: center;
-  align-items: center;
+  align-items: start;
   background: rgb(238, 174, 202);
   background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
   border-radius: 40px;
@@ -40,13 +40,18 @@ body {
   font-size: 1.4rem;
   /* text-transform: uppercase; */
   box-shadow: -1px 1px 18px 3px rgb(54, 45, 103);
-
 }
+
+.todolist-container.expanded {
+  min-height: 50vh; /* Hauteur après clic */
+}
+
 
 .todolist-container h1 {
   width: 100%;
   text-align: center;
   padding-top: 20px;
+  
 }
 
 /* From Uiverse.io by vinodjangid07 */
@@ -105,11 +110,11 @@ li::before {
 
 li::after {
   content: " (Terminé)";
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: rgb(208, 29, 29);
   font-weight: 500;
   opacity: 0;
-  transition: opacity 0.2s ;
+  transition: opacity 0.5s ;
   z-index: 1;
 }
 
@@ -124,14 +129,13 @@ li.beforeChecked::before {
   margin-right: 8px;
 }
 
-li.afterSuppr:hover::after {
+li.afterSuppr:after {
   content: " (Supprimer)";
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: rgb(208, 29, 29);
   font-weight: 500;
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   z-index: 2;
 };
-
 

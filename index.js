@@ -14,35 +14,40 @@
 
 const form = document.querySelector("form");
 const inputText = document.querySelector('input[type="text"]');
+const todoList = document.querySelector(".todoList");
 let inputTodo = "";
-let newLi = document.querySelector(".items > ul");
-const todoListContainer = document.querySelector(".todolist-container");
-// let size = 30; // Taille initiale
+let firstLi = document.getElementById("firstLi");
+// let newLiUl = document.querySelector(".items > ul");
 
 // récupère le texte qui est tapé en temps réel dans l'input:
 inputText.addEventListener("input", (e) => {
   inputTodo = e.target.value;
 });
 
-// Ajouter un todo à la liste au submit
+// Ajoute un écouteur d'événements pour le formulaire
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  newLi.innerHTML += `
-  <li>${inputTodo}</li>`;
-  input.value = ""; // Vider l'input
-  // size += 5;
-  // todoListContainer.style.height = size + "%";
-});
 
-// Changement de l'icône et du texte en after au survole et au clik du todo :
-newLi.addEventListener("click", (e) => {
-  if (e.target.tagName === "LI") {
-    e.target.classList.add("beforeChecked");
-    e.target.classList.add("afterSuppr");
-    // if (e.target.classList.contains("beforeChecked")) {  // Vérifie si l'élément possède la classe "to-remove"
-    //   e.target.remove();  // Supprime l'élément du DOM
-    // }
+  if (inputTodo !== "") {
+    // Si l'input n'est pas vide
+    const newLi = document.createElement("li"); // Crée un nouvel élément <li>
+    newLi.textContent = inputTodo; // Ajoute le texte de l'input à la nouvelle <li>
+    firstLi.remove();
+
+    // Ajout d'évènements au click :
+    newLi.addEventListener("click", (e) => {
+      let isClicked = newLi.classList.contains("beforeChecked"); // Vérifie si l'élément a déjà été cliqué
+      if (!isClicked) {
+        newLi.classList.add("beforeChecked");
+        newLi.classList.add("afterSuppr"); // if (e.target.classList.contains("beforeChecked")) {  // Vérifie si
+      } else {
+        newLi.remove(); // Supprime l'élément du DOM au deuxième clic
+      }
+    });
+
+    todoList.appendChild(newLi); // Ajoute la nouvelle <li> à la liste
+    input.value = ""; // Vider l'input
   }
 });
 
